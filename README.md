@@ -21,6 +21,7 @@ jobs:
   reproduire:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: Hebilicious/reproduire@v1
         with:
           label: needs-reproduction # Optional, will default to this value.
@@ -36,6 +37,7 @@ Setup a [stale](https://github.com/actions/stale) action in your repository (e.g
 ```yaml
 name: Close incomplete issues
 on:
+  workflow_dispatch:
   schedule:
     - cron: '30 1 * * *' # run every day
 
@@ -50,8 +52,10 @@ jobs:
         with:
           days-before-stale: -1 # Issues and PR will never be flagged stale automatically.
           stale-issue-label: needs-reproduction # Label that flags an issue as stale.
+          only-labels: needs-reproduction # Only process these issues
           days-before-issue-close: 7
-          stale-issue-message: Action stale will close this issue in 7 days.
+          ignore-updates: true
+          remove-stale-when-updated: false
           close-issue-message: This issue was closed because it was open for 7 days without a valid reproduction.
           close-issue-label: closed-by-reproduire
 ```

@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "@hebilicious/eslint-config": "0.0.3-beta.3",
-    "@types/node": "^24.10.2",
+    "@types/node": "^24.10.4",
     "@vercel/ncc": "^0.38.4",
     "changelogen": "^0.6.2",
     "eslint": "^8.57.1",
@@ -28,7 +28,7 @@
     "unbuild": "^3.6.1"
   },
   "dependencies": {
-    "@actions/core": "1.11.1",
+    "@actions/core": "2.0.1",
     "@actions/github": "6.0.1"
   },
   "simple-git-hooks": {
